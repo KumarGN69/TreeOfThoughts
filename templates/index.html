@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jinja Filters</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Brainstorming </title>
 </head>
 <body>
-    <h3>Ideas: {{ ideas }}</h3>
+    {% macro render_idea_name(idea) %}
+        <h4><li>{{ idea }}</li></h4>
+    {% endmacro %}
+    {% macro render_idea_desc(idea) %}
+        <h5><li>{{ idea }}</li></h5>
+    {% endmacro %}
+    <h3> {{thought}} </h4>
+        <ul>
+            {% for idea in ideas %}
+                {{render_idea_name(idea.name)}}
+                    {{render_idea_desc(idea.description)}}
+            {% endfor %}
+        </ul>
 </body>
 </html>
