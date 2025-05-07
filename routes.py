@@ -4,7 +4,7 @@ from flask import Flask, render_template, jsonify
 app = Flask(__name__)
 
 tree_of_thoughts = TreeOfThoughts()
-@app.route('/')
+@app.route('/ideas', methods=['GET'])
 def getidea():
     user_input = input(f"Enter your idea for brainstorming :")
     ideas = tree_of_thoughts.getidea(user_input)
