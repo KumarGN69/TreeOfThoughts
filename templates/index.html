@@ -7,13 +7,18 @@
     <title>Brainstorming </title>
 </head>
 <body>
+    <form action="{{ url_for('submit_text') }}" method="POST">
+        <label for="text">Enter text:</label>
+        <input type="text" id="text" name="text">
+        <button type="submit">Submit</button>
+    </form>
     {% macro render_idea_name(idea) %}
         <h4><li>{{ idea }}</li></h4>
     {% endmacro %}
     {% macro render_idea_desc(idea) %}
         <h5><li>{{ idea }}</li></h5>
     {% endmacro %}
-    <h3> {{thought}} </h4>
+    <h4> {{thought}} </h4>
         <ul>
             {% for idea in ideas %}
                 {{render_idea_name(idea.name)}}
